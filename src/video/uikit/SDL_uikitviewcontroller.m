@@ -250,7 +250,7 @@ SDL_HideHomeIndicatorHintChanged(void *userdata, const char *name, const char *o
 #endif
 
 /*
- ---- Keyboard related functionality below this line ----
+ ----   related functionality below this line ----
  */
 #if SDL_IPHONE_KEYBOARD
 
@@ -394,6 +394,12 @@ SDL_HideHomeIndicatorHintChanged(void *userdata, const char *name, const char *o
     kbrect = [self.view convertRect:kbrect fromView:nil];
 
     [self setKeyboardHeight:(int)kbrect.size.height];
+	//move stage up
+	[UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = -setKeyboardHeight;
+        self.view.frame = f;
+    }];
 #endif
 }
 
@@ -403,6 +409,12 @@ SDL_HideHomeIndicatorHintChanged(void *userdata, const char *name, const char *o
         SDL_StopTextInput();
     }
     [self setKeyboardHeight:0];
+	//move stage back down
+	[UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y = 0.0f;
+        self.view.frame = f;
+    }];
 }
 
 - (void)textFieldTextDidChange:(NSNotification *)notification
