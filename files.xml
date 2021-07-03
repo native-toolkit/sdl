@@ -163,6 +163,8 @@
             <compilerflag value="-DNATIVE_TOOLKIT_SDL_X11_XINPUT2_SUPPORTS_MULTITOUCH=${XINPUT2}" if="XINPUT2"/>
             <compilerflag value="-DNATIVE_TOOLKIT_SDL_X11_XINPUT2=0" unless="XINPUT2" />
             <compilerflag value="-DNATIVE_TOOLKIT_SDL_X11_XINPUT2_SUPPORTS_MULTITOUCH=0" unless="XINPUT2"/>
+            <compilerflag value="-DNATIVE_TOOLKIT_SDL_X11_XRANDR=1" if="NATIVE_TOOLKIT_SDL_X11_XRANDR" />
+            <compilerflag value="-DNATIVE_TOOLKIT_SDL_X11_XINERAMA=1" if="NATIVE_TOOLKIT_SDL_X11_XINERAMA" />
 
         </section>
 
